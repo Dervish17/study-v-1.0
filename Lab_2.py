@@ -27,7 +27,7 @@ else:
 # Задача 4
 yuly = input('Введите название города для поездки в ИЮЛЕ: ')
 august = input('Введите название города для поездки в АВГУСТЕ: ')
-if yuly == 'Пенза' and august == 'Тула':
+if yuly == 'Пенза' and august != 'Пенза' or yuly == 'Тула' and august != 'Тула':
     print('ДА')
 else:
     print('НЕТ')
