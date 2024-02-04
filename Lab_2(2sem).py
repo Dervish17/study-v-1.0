@@ -55,9 +55,9 @@ def main():
     with open('test — копия.json', 'r', encoding='utf-8') as info_file:
         geo_test = json.load(info_file)
         print('Метка находится в стране:', geo_test['response']['GeoObjectCollection']['featureMember'][0]['GeoObject']
-        ['metaDataProperty']['GeocoderMetaData']['Address']['Components'][0]['name'])
+              ['metaDataProperty']['GeocoderMetaData']['Address']['Components'][0]['name'])
         print('Координаты:', geo_test['response']['GeoObjectCollection']
-        ['featureMember'][0]['GeoObject']['Point']['pos'])
+              ['featureMember'][0]['GeoObject']['Point']['pos'])
 
     # Задание 5
     with open('test — копия.json', 'r', encoding='utf-8') as info_file:
