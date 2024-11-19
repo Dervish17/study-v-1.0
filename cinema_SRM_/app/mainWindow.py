@@ -1,0 +1,68 @@
+from PyQt5.QtCore import Qt
+from PyQt6.QtWidgets import (QWidget, QLabel, QMainWindow, QPushButton, QVBoxLayout,
+                             QHBoxLayout, QApplication)
+from PyQt6.QtGui import QIcon, QPixmap
+from app.authWindow import AuthWindow
+from app.viewCinemaUser import ViewCinemaUser
+
+
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
+        self.initUI()
+
+    def initUI(self):
+        self.setStyleSheet("background-color: orange;")
+        self.setWindowTitle('Кинотеатр "Амур"')
+        self.resize(300, 400)
+        self.setWindowIcon(QIcon('resources/cinema.ico'))
+
+        picture_label = QLabel()
+        pixmap = QPixmap('resources/cinema.ico')
+        picture_label.setPixmap(pixmap)
+
+        central_widget = QWidget()
+
+        label = QLabel('Войти как')
+        # label.setStyleSheet('color: black')
+        label.setStyleSheet("QLabel {font: 20pt Arial; color: black}")
+        self.admin_btn = QPushButton('Администратор')
+        self.user_btn = QPushButton('Пользователь')
+        self.admin_btn.setStyleSheet('QPushButton {font-size: 16px; background-color: white; color: black;}')
+        self.user_btn.setStyleSheet('QPushButton {font-size: 16px; background-color: white; color: black;}')
+
+        main_l = QVBoxLayout()
+        h_l1 = QHBoxLayout()
+        h_l2 = QHBoxLayout()
+
+        h_l1.addStretch(2)
+        h_l1.addWidget(label, 1)
+        h_l1.addStretch(2)
+        h_l2.addStretch()
+        h_l2.addWidget(picture_label)
+        h_l2.addStretch()
+
+        main_l.addStretch()
+        main_l.addLayout(h_l2)
+        main_l.addLayout(h_l1)
+        main_l.addWidget(self.admin_btn)
+        main_l.addWidget(self.user_btn)
+        main_l.addStretch()
+
+        central_widget.setLayout(main_l)
+        self.setCentralWidget(central_widget)
+
+        self.admin_btn.clicked.connect(self.show_admin_auth)
+        self.user_btn.clicked.connect(self.show_win_user)
+
+    def show_admin_auth(self):
+        self.auth = AuthWindow()
+        self.auth.show()
+
+
+    def show_win_user(self):
+        self.show_user = ViewCinemaUser()
+        self.show_user.show()
+
+    def closeEvent(self, event):
+        QApplication.quit()
