@@ -18,7 +18,7 @@ class FilmWin(QWidget):
         self.resize(400, 300)
         self.setWindowTitle('Справка')
         self.setWindowIcon(QIcon('resources/54544.png'))
-        self.setStyleSheet("background-color: orange;")
+        self.setStyleSheet("background-color: #90e6e4;")
 
         self.label = QLabel()
         self.label.setStyleSheet("font: 12pt Arial; color: black; padding: 10px;")
