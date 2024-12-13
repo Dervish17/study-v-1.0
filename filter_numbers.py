@@ -1,11 +1,11 @@
 from functools import lru_cache
 
-# def filter_numbers():
-#     numbers = []
-#     for i in range(int(input())):
-#         if i % 3 == 0 or i % 5 == 0:
-#             numbers.append(i)
-#     return numbers
+def filter_numbers():
+    numbers = []
+    for i in range(int(input())):
+        if i % 3 == 0 or i % 5 == 0:
+            numbers.append(i)
+    return numbers
 
 
 @lru_cache()
